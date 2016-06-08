@@ -1,0 +1,2 @@
+Program to generate Julia sets. 
+Iterator z=sin(z)*c, z and c complex numbers.  

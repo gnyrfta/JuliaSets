@@ -1,0 +1,5 @@
+Program to generate Julia sets. 
+Iterator z=sin(z)*c, z and c complex numbers.  Still under development, right now c is hardcoded and the image that appears 
+is a faint spiral. 
+
+Read about Julia sets on wikipedia: https://en.wikipedia.org/wiki/Julia_set#Examples_of_Julia_sets
