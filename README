@@ -1,5 +1,50 @@
 Program to generate Julia sets. 
-Iterator z=sin(z)*c, z and c complex numbers.  Still under development, right now c is hardcoded and the image that appears 
-is a faint spiral. 
+
+
+About 
+
+		About Julia sets. 
+
+Julia sets are the points created by iterating certain functions of complex numbers in this way: 
+z_0=a+bi
+z_1=f(z_0) 
+z_2=f(z_1)
+.
+.
+.
+z_n=f(z_n-1)
+et.c...
+
+If z converges as n -> inf then the z_0-value belongs to the set. 
+If z diverges for large n then the z_0-value does not belong to the set.
+
+The functions used for iteration in this app are
+f(z)=c*sin(z)
+f(z)=c*cos(z)+c
+f(z)=z^2+c
+
+where c is a complex number that you specify in the app. 
+
+		Suggestions for c-values: 
+
+Sine: 
+1.0+0.1j
+1.0+0.3j
+Cosine:
+1.0-0.5j
+1.5708+0.94248j
+1.5708+0.62832j
+Quadratic:
+-0.750+0j
+-0.75-0.2j
+-0.75+0.5j
+
+		About app: 
+
+Displays black and white julia sets. 
+Based on the Python script 'julia_set.py' by Tim Meehan, see
+paulbourke.net/fractals/sinjulia/
+
+
 
 Read about Julia sets on wikipedia: https://en.wikipedia.org/wiki/Julia_set#Examples_of_Julia_sets
