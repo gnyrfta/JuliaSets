@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 /**
  * Created by david on 2016-05-27.
+ *
  * For generating Julia Sets.
  */
 public class JuliaGenerator {
@@ -15,7 +16,7 @@ public class JuliaGenerator {
     int height=MainActivity.height;
     int scale = 6;
     int largestValue;
-    Iteration iteration;
+    String iterationName="sine";
     //Every z in a -2 -> 2 square is a seed for testing if it goes to 'infinity' or not.
     //if it does, the original z is not part of the set.
     //if not, colour it black.
@@ -42,6 +43,8 @@ public class JuliaGenerator {
     {
         //x is the real part, y is the imaginary part.
         //For z_n= c*sin(z_n-1)
+        Log.d("checkifBelongsToSetSine","checkifBelongsToSetSine");
+
         int returnValue=1;
         int bailout=1000;
         int largestValue=0;
@@ -94,21 +97,34 @@ public class JuliaGenerator {
             {
                 int y=yArray.get(j);
                 Log.d("y:"+y,"y:"+y);
-
-
+                if(MainActivity.iterationType.equals("sine"))
+                {
+                    scale=10;
+                }
+                else if(MainActivity.iterationType.equals("cosine"))
+                {
+                    scale=3;
+                }
+                else if(MainActivity.iterationType.equals("quadratic"))
+                {
+                    scale=2;
+                }
                 double real = (x / factor) * scale;
                 double imaginary = (y / factor) * scale;
                 Log.d("real: "+real,"rel: "+real);
                 Log.d("imaginary: "+imaginary,"imaginary: "+imaginary);
-                if(this.iteration==Iteration.SINE)
+                if(MainActivity.iterationType.equals("sine"))
                 {
+                    Log.d("iteration.sine","iteration.sine");
                     result[i][j] = checkIfBelongsToSetSine(real, imaginary);
+
                 }
-                else if (this.iteration==Iteration.COSINE)
+                else if (MainActivity.iterationType.equals("cosine"))
                 {
+                    Log.d("iteration cosine","iteration cosine");
                    result[i][j] = checkIfBelongsToSetCosine(real, imaginary);
                 }
-                else if(this.iteration==Iteration.QUADRATIC)
+                else if(MainActivity.iterationType.equals("quadratic"))
                 {
                     result[i][j] = checkIfBelongsToSetQuadratic(real, imaginary);
                 }
@@ -117,12 +133,8 @@ public class JuliaGenerator {
                 {
                     largestValue=result[i][j];
                 }
-                // Log.d("real: " + real, "real: " + real);
-                // Log.d("imaginary: " + imaginary, "imaginary: " + imaginary);
-                //fw.append("value: "+result[x][y]+"/n");
             }
         }
-     //   Log.d("result[0].length: "+result.length,"result[0].length"+result.length);
         return result;
     }
     public void setZ(double a, double b)
@@ -133,9 +145,10 @@ public class JuliaGenerator {
     public void setIteration(int a)
     {
         switch(a) {
-            case 1: this.iteration = Iteration.SINE;
-            case 2: this.iteration = Iteration.COSINE;
-            case 3: this.iteration = Iteration.QUADRATIC;
+
+            case 1:iterationName="sine";
+            case 2:iterationName="cosine";
+            case 3:iterationName="quadratic";
         }
     }
     public int checkIfBelongsToSetCosine(double x, double y)
@@ -207,9 +220,6 @@ public class JuliaGenerator {
         Log.d("returnvalue: "+returnValue,"returnvalue"+returnValue);
         return returnValue;
     }
-    public enum Iteration
-    {
-        SINE, COSINE, QUADRATIC
-    }
+
 }
 

@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -32,21 +33,13 @@ public class MainActivity extends AppCompatActivity {
     public static double real=0;
     public static double complex=0;
     public static int[][] thisArray;
-    String iterationType="sine";
+    static String iterationType="sine";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
     @Override
@@ -100,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 jg.setIteration(1);
                 iterationType="sine";
+                Log.d("sine iteration set","sine iteration set");
             }
         });
         cosine.setOnClickListener(new View.OnClickListener() {
@@ -125,9 +119,28 @@ public class MainActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        int longDuration=10;
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.about_app) {
+            Toast.makeText(getApplicationContext(),getString(R.string.infoApp),Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),getString(R.string.infoApp),Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),getString(R.string.infoApp),Toast.LENGTH_LONG).show();
+
+            return true;
+        }
+        else if(id==R.id.about_constants)
+        {
+            Toast.makeText(getApplicationContext(),getString(R.string.infoConstants),Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),getString(R.string.infoConstants),Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),getString(R.string.infoConstants),Toast.LENGTH_LONG).show();
+            return true;
+        }
+        else if(id==R.id.about_julia)
+        {
+            Toast.makeText(getApplicationContext(),getString(R.string.infoJulia),Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),getString(R.string.infoJulia),Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),getString(R.string.infoJulia),Toast.LENGTH_LONG).show();
             return true;
         }
 

@@ -1,4 +1,45 @@
 <resources>
     <string name="app_name">Julia Sets</string>
     <string name="action_settings">Settings</string>
+    <string name="about_julia">About Julia Sets</string>
+    <string name="about_constants">Suggestions for Constants</string>
+    <string name="about_app">About App</string>
+    <string name="info">Generate Julia Sets by setting the constant and choosing an iteration method. </string>
+    <string name="infoApp">About app\n
+Displays black and white julia sets. \n
+Project home page
+Based on the Python script \'julia_set.py\' by Tim Meehan, see
+paulbourke.net/fractals/sinjulia/</string>
+    <string name="infoJulia">About Julia sets. \n
+Julia sets are the points created by iterating certain functions of complex numbers in this way: \n
+z_0=a+bi\n
+z_1=f(z_0)\n
+z_2=f(z_1)\n
+.\n
+.\n
+.\n
+z_n=f(z_n-1)\n
+
+If z converges as n -> inf then the z_0-value belongs to the set. \n
+If z diverges for large n then the z_0-value does not belong to the set.\n
+
+The functions used for iteration in this app are\n
+f(z)=c*sin(z)\n
+f(z)=c*cos(z)+c\n
+f(z)=z^2+c\n
+where c is a complex number that you specify in the app.
+</string>
+    <string name="infoConstants">Suggestions for c-values \n
+Sine: \n
+1.0+0.1j\n
+1.0+0.3j\n
+Cosine:\n
+1.0-0.5j\n
+1.5708+0.94248j\n
+1.5708+0.62832j \n
+Quadratic:\n
+-0.750+0j\n
+-0.75-0.2j\n
+-0.75+0.5j \n
+    </string>
 </resources>
